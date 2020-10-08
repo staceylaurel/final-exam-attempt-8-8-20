@@ -4,8 +4,8 @@ import * as React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 // // //component imports
-// import NavBar from "./components/NavBar";
-// import Home from "./views/Home";
+import NavBar from "./components/NavBar";
+import Home from "./views/Home";
 // import Details from "./views/Details";
 // import NewBook from "./views/NewBook";
 // import Admin from "./views/Admin";
@@ -17,35 +17,34 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 const App: React.FC<AppProps> = (props) => {
   return (
     <BrowserRouter>
-{/* //       <NavBar />
-//       <Switch>
-//         <Route exact path="/">
-//           <Home />
-//         </Route>
-//         <Route exact path="/:id/bookdetails">
+     <NavBar />
+       <Switch>
+         <Route exact path="/">
+           <Home />
+         </Route>
+         {/* <Route exact path="/:id/bookdetails">
+           <Details />
+         </Route>
+        
+         <PrivateRoute exact path="/newbook">
+           <NewBook />
+         </PrivateRoute>
+         <PrivateRoute exact path="/:id/admin">
+           <Admin />
+         </PrivateRoute>
+        
+         <Route exact path="/login">
           
-//           <Details />
-//         </Route>
+           <Login />
+         </Route>
+         <Route exact path="/register">
+           <Register />
+         </Route>  */}
         
-//         <PrivateRoute exact path="/newbook">
-//           <NewBook />
-//         </PrivateRoute>
-//         <PrivateRoute exact path="/:id/admin">
-//           <Admin />
-//         </PrivateRoute>
-        
-//         <Route exact path="/login">
-          
-//           <Login />
-//         </Route>
-//         <Route exact path="/register">
-//           <Register />
-//         </Route> 
-        
-//         <Route path="*">{() => <h1>Not Found!</h1>}</Route>
+         <Route path="*">{() => <h1>Not Found!</h1>}</Route>
       
-//       </Switch> */}
-//     </BrowserRouter>
+       </Switch> 
+     </BrowserRouter>
   );
 };
 
