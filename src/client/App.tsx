@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 // // //component imports
 import NavBar from "./components/NavBar";
 import Home from "./views/Home";
-// import Details from "./views/Details";
+import Details from "./views/Details";
 // import NewBook from "./views/NewBook";
 // import Admin from "./views/Admin";
 // import Login from "./views/Login";
@@ -22,11 +22,11 @@ const App: React.FC<AppProps> = (props) => {
          <Route exact path="/">
            <Home />
          </Route>
-         {/* <Route exact path="/:id/bookdetails">
+          <Route exact path="/:id/bookdetails">
            <Details />
-         </Route>
-        
-         <PrivateRoute exact path="/newbook">
+         </Route>      
+
+         {/* <PrivateRoute exact path="/newbook">
            <NewBook />
          </PrivateRoute>
          <PrivateRoute exact path="/:id/admin">
@@ -39,7 +39,7 @@ const App: React.FC<AppProps> = (props) => {
          </Route>
          <Route exact path="/register">
            <Register />
-         </Route>  */}
+         </Route>   */}
         
          <Route path="*">{() => <h1>Not Found!</h1>}</Route>
       

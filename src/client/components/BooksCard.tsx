@@ -12,7 +12,7 @@ const BooksCard: React.FC<BooksCardProps> = ({ book }) => {
         </div>
         <div className="card-body">
           <p className="card-title text-warning-center">{book.author}</p>
-          {/* <p className="card-title text-warning-center">{book.name}</p> */}
+          <p className="card-title text-warning-center">{book.categoryid}</p>
           <p className="card-title text-warning-center">{book.price}</p> 
           <Link to={`/${book.id}/bookdetails`}>Go To Details</Link>
         </div>
