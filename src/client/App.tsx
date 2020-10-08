@@ -7,12 +7,12 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./views/Home";
 import Details from "./views/Details";
-// import NewBook from "./views/NewBook";
-// import Admin from "./views/Admin";
-// import Login from "./views/Login";
-// import Register from "./views/Register";
+import NewBook from "./views/NewBook";
+import Admin from "./views/Admin";
+import Login from "./views/Login";
+import Register from "./views/Register";
 
-// import PrivateRoute from './utils/PrivateRoute';
+import PrivateRoute from './utils/PrivateRoute';
 
 const App: React.FC<AppProps> = (props) => {
   return (
@@ -26,20 +26,19 @@ const App: React.FC<AppProps> = (props) => {
            <Details />
          </Route>      
 
-         {/* <PrivateRoute exact path="/newbook">
-           <NewBook />
-         </PrivateRoute>
+          <PrivateRoute exact path="/newbook">
+           <NewBook /> 
+         </PrivateRoute> 
          <PrivateRoute exact path="/:id/admin">
            <Admin />
          </PrivateRoute>
         
-         <Route exact path="/login">
-          
+          <Route exact path="/login">
            <Login />
-         </Route>
+         </Route> 
          <Route exact path="/register">
            <Register />
-         </Route>   */}
+         </Route>    
         
          <Route path="*">{() => <h1>Not Found!</h1>}</Route>
       

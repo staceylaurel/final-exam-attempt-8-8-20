@@ -1,41 +1,22 @@
 import * as React from "react";
 import api from "../utils/api-services";
-import { Link, useParams, useHistory } from "react-router-dom";
-import { IBook } from "../types";
+import { Link, useHistory } from "react-router-dom";
 
-const Admin: React.FC<AdminProps> = (props) => {
-    const [book, setBook] = React.useState<IBook>(null);
+const NewBook: React.FC<NewBookProps> = (props) => {
     const [title, setTitle] = React.useState('');
     const [author, setAuthor] = React.useState('');
     const [categoryid, setCategoryid] = React.useState('');
     const [price, setPrice] = React.useState('');
 
-  const {id} = useParams<{id: string}>();
   const history = useHistory();
 
-  const handleDelete = async(e:React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-      await api(`/api/books/${id}`, "DELETE")
-      history.push('/');
-  }
 
   const handleSubmit = async(e:React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    await api(`/api/books/${id}`, "PUT", {title, author, categoryid, price}) 
+    await api('/api/books/', "POST", {title, author, categoryid, price}) 
     history.push('/');
 }
-  
-  React.useEffect(() => {
-    (async () => {
-      const book = await api(`/api/books/${id}`).then((book) => {
-        setTitle(book.title);
-        setAuthor(book.author);
-        setCategoryid(book.categoryid);
-        setPrice(book.price);
-      });
-      
-    }) ();
-  }, []);
+ 
 
   return (
     <div className="col-md-7 p-3 border bg-light">
@@ -67,12 +48,11 @@ const Admin: React.FC<AdminProps> = (props) => {
 
              </div>
              <button onClick={handleSubmit}>Save Update?</button>
-             <button onClick={handleDelete}>DELETE</button>
       <Link to= {'/'}>Bookstore Home </Link>
     </div>
   );
 };
 
-interface AdminProps {}
+interface NewBookProps {}
 
-export default Admin;
+export default NewBook;

@@ -5,7 +5,7 @@ import db from "../../db";
 
 const router = Router();
 
-//POST passport.authenticate('local'),
+//POST 
 router.post("/", async (req: any, res) => {
   const newUser = req.body;
   newUser.password = generateHash(newUser.password);

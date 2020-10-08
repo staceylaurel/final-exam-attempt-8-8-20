@@ -28,7 +28,7 @@ router.get('/:id', async(req, res) => {
 });
 
 //PUT passport.authenticate('jwt'), 
-router.put('/:id', async(req: any, res) => {
+router.put('/:id', passport.authenticate('jwt'), async(req: any, res) => {
     try {
         const id = Number(req.params.id);
         const editBooks = req.body
@@ -41,7 +41,7 @@ router.put('/:id', async(req: any, res) => {
 });
 
 //DELETE passport.authenticate('jwt'), 
-router.delete('/:id', async(req, res) => {
+router.delete('/:id', passport.authenticate('jwt'), async(req, res) => {
     try {
         const id = Number(req.params.id);
         const results = await db.books.destroy(id);
@@ -53,7 +53,7 @@ router.delete('/:id', async(req, res) => {
 });
 
 //POST passport.authenticate('jwt'),
-router.post('/', async(req, res) => {
+router.post('/', passport.authenticate('jwt'), async(req, res) => {
     try {
         const newBook = req.body;
         const results = await db.books.insert(newBook);

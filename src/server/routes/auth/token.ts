@@ -4,7 +4,7 @@ import * as passport from "passport";
 const router = Router();
 
 //GET One passport.authenticate('jwt'),
-router.get("/verify", async (req, res) => {
+router.get("/verify", passport.authenticate('jwt'), async (req, res) => {
   try {
     res.sendStatus(200);
   } catch (error) {

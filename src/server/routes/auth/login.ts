@@ -6,7 +6,7 @@ import db from '../../db';
 const router = Router();
 
 //POST passport.authenticate('local'),
-router.post('/', async(req:any, res) => {
+router.post('/', passport.authenticate('local'), async(req:any, res) => {
     try {
         const token = createToken({userid: req.user.id});
         res.json(token);
