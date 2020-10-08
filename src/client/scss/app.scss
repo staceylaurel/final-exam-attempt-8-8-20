@@ -1,0 +1,13 @@
+$theme-colors: (
+    'primary': #A2B1C0,
+    'danger':  #9EA9BC,
+    'warning': #7E7D75,
+    'info': #5C5853,
+    'secondary': #7B6570
+);
+
+body {
+    background-color: #F6F7F5 !important;
+}
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
