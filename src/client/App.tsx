@@ -1,7 +1,7 @@
 // // //@ts-nocheck
 // // //library imports
-// import * as React from "react";
-// import { BrowserRouter, Switch, Route } from "react-router-dom";
+import * as React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 // // //component imports
 // import NavBar from "./components/NavBar";
@@ -14,10 +14,10 @@
 
 // import PrivateRoute from './utils/PrivateRoute';
 
-// const App: React.FC<AppProps> = (props) => {
-//   return (
-//     <BrowserRouter>
-//       <NavBar />
+const App: React.FC<AppProps> = (props) => {
+  return (
+    <BrowserRouter>
+{/* //       <NavBar />
 //       <Switch>
 //         <Route exact path="/">
 //           <Home />
@@ -44,11 +44,11 @@
         
 //         <Route path="*">{() => <h1>Not Found!</h1>}</Route>
       
-//       </Switch>
+//       </Switch> */}
 //     </BrowserRouter>
-//   );
-// };
+  );
+};
 
-// interface AppProps {}
+interface AppProps {}
 
-// export default App;
+export default App;
