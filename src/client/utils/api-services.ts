@@ -26,6 +26,10 @@ export default async <T = any>(
       console.log(error);
     }
   };
+
+  export const setStorage = (token: string) => {
+    localStorage.setItem('token', token);
+  }
   
   export const logout = () => localStorage.clear();
   

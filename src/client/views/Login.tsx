@@ -1,8 +1,10 @@
 import * as React from "react";
-import api from "../utils/api-services";
+import api, { setStorage } from "../utils/api-services";
 import { Link, useHistory } from "react-router-dom";
+import apiServices from "../utils/api-services";
+import { isThrowStatement } from "typescript";
 
-const Login: React.FC<LoginProps> = (props) => {
+const Login: React.FC<LoginProps> = props => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -10,7 +12,9 @@ const Login: React.FC<LoginProps> = (props) => {
 
   const login = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    await api("/auth/login/", "POST", { email, password });
+
+    const token = await apiServices("/auth/login/", "POST", { email, password });
+    setStorage(token);
     history.push("/");
   };
 
@@ -36,3 +40,10 @@ const Login: React.FC<LoginProps> = (props) => {
 interface LoginProps {}
 
 export default Login;
+
+
+
+///Notes on what went wrong
+// So what had happen was that api-services.ts did not have localStoraged save from the get-go. 
+// I added it and then came to this page and had to update const token. 
+// Adding api(Services) and line 17 setStorage(token).
